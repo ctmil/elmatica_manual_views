@@ -2,6 +2,8 @@
 <openerp>
     <data>
 
+	<!-- Lp_more_hiding_so -->
+	<!-- Lp_headers_popup_so -->
 	<record model="ir.ui.view" id="sale_order_form_manual">
             <field name="name">sale.order.form.manual</field>
             <field name="model">sale.order</field>
@@ -13,8 +15,55 @@
 		<xpath expr="//field[@name='procurement_contact']" position="replace">
                     <field name="procurement_contact"  attrs="{'required':[('state','=','draft')]}"/>
 		</xpath>
+		<!-- xpath expr="//field[@name='required_shipping_date']" position="attributes">
+                           <attribute name='invisible'>1</attribute>
+                </xpath -->
+                <xpath expr="//field[@name='date_order']" position="attributes">
+                           <attribute name='widget'>date</attribute>
+                </xpath>
+               <xpath expr="//field[@name='calculated_weight']" position="attributes">
+                           <attribute name='invisible'>0</attribute>
+                </xpath>
+                <xpath expr="//field[@name='freight_price']" position="replace">
+	                    <field name="freight_price" string="Transit fee"/>
+                </xpath>
+                <xpath expr="//field[@name='dhl_price']" position="replace">
+	                    <field name="dhl_price" string="Freight/FCA"/>
+                </xpath>
+                <xpath expr="//field[@name='calculated_unit_price']" position="replace">
+	                    <field name="calculated_unit_price" string="Net unit price"/>
+                </xpath>
+                <xpath expr="//field[@name='quoted_rate']" position="replace">
+	                    <field name="quoted_rate" string="Exchange rate"/>
+                </xpath>
+                <xpath expr="//field[@name='manufacturing_leadtime']" position="attributes">
+                           <attribute name='invisible'>1</attribute>
+                </xpath>
 	    </field>
 	</record>
+
+	<record model="ir.ui.view" id="sale_order_form_sale_stock">
+            <field name="name">sale.order.form.manual.sale_stock</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale_stock.view_order_form_inherit"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='warehouse_id']" position="attributes">
+                           <attribute name='invisible'>1</attribute>
+                </xpath>
+	    </field>
+	</record>
+
+	<record model="ir.ui.view" id="sale_order_form_elmatica_purchase_flow">
+            <field name="name">sale.order.form.manual.elmatica_purchase_flow</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="elmatica_purchase_flow.create_purchase_order_sale_order_form" />
+            <field name="arch" type="xml">
+		<xpath expr="//field[@name='required_shipping_date']" position="attributes">
+                           <attribute name='invisible'>1</attribute>
+                </xpath>
+	    </field>
+	</record>
+	
 
 	<!-- Lp_shuffling_PO_fields -->
         <record model="ir.ui.view" id="purchase_order_form_manual">
