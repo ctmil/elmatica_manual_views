@@ -4,6 +4,8 @@
 
 	<!-- Lp_more_hiding_so -->
 	<!-- Lp_headers_popup_so -->
+	<!-- Lp_headers_in_list_in_SO_form -->
+	<!-- Lp_change_literals_in_quotation_30May -->
 	<record model="ir.ui.view" id="sale_order_form_manual">
             <field name="name">sale.order.form.manual</field>
             <field name="model">sale.order</field>
@@ -38,6 +40,33 @@
                 </xpath>
                 <xpath expr="//field[@name='manufacturing_leadtime']" position="attributes">
                            <attribute name='invisible'>1</attribute>
+                </xpath>
+		<xpath expr="//page[@string='Order Lines']/field[@name='order_line']/tree[@string='Sales Order Lines']/field[@name='transportation_price']" position="replace">
+                    <field name="transportation_price" string="Freight / FCA_fee"/>
+                </xpath>
+		<xpath expr="//page[@string='Order Lines']/field[@name='order_line']/tree[@string='Sales Order Lines']/field[@name='calculated_weight']" position="replace">
+                    <field name="calculated_weight" string="Weight"/>
+                </xpath>
+
+		<xpath expr="//page[@string='Order Lines']/field[@name='order_line']/tree[@string='Sales Order Lines']/field[@name='calculated_unit_price']" position="replace">
+                    <field name="calculated_unit_price" string="Net unit price"/>
+                </xpath>
+
+		<xpath expr="//page[@string='Order Lines']/field[@name='order_line']/tree[@string='Sales Order Lines']/field[@name='quoted_rate']" position="replace">
+                    <field name="quoted_rate" string="Exchange rate"/>
+                </xpath>
+		<!-- Additional changes as suggested by Didrik -->
+		<xpath expr="//page[@string='Order Lines']/field[@name='order_line']/tree[@string='Sales Order Lines']/field[@name='product_class']" position="replace">
+                    <field name="product_class" string="STD/QTA"/>
+                </xpath>
+		<xpath expr="//page[@string='Order Lines']/field[@name='order_line']/tree[@string='Sales Order Lines']/field[@name='calculated_leadtime']" position="replace">
+                    <field name="calculated_leadtime" string="Leadtime"/>
+                </xpath>
+		<xpath expr="//page[@string='Order Lines']/field[@name='order_line']/tree[@string='Sales Order Lines']/field[@name='categ_id']" position="attributes">
+                           <attribute name='invisible'>1</attribute>
+                </xpath>
+		<xpath expr="//page[@string='Public Holidays']" position="attributes">
+                           <attribute name='string'>Destination Country Holidays</attribute>
                 </xpath>
 	    </field>
 	</record>
