@@ -1,12 +1,12 @@
 <?xml version="1.0"?>
 <openerp>
     <data>
-
 	<!-- Lp_more_hiding_so -->
 	<!-- Lp_headers_popup_so -->
 	<!-- Lp_headers_in_list_in_SO_form -->
 	<!-- Lp_change_literals_in_quotation_30May -->
 	<!-- Lp_ntty_widget_in_so_form -->
+	<!-- Lp_hide_fields_and_button_in_so -->
 	<record model="ir.ui.view" id="sale_order_form_manual">
             <field name="name">sale.order.form.manual</field>
             <field name="model">sale.order</field>
@@ -72,6 +72,15 @@
 		  <xpath expr="//field[@name='ntty_url']" position="attributes">
                            <attribute name='widget'>url</attribute>
                 </xpath>
+	<button string="ADD PACK" position="attributes">
+                 <attribute name="invisible">1</attribute>
+          </button>
+	<button string="Run Auto Lines" position="attributes">
+                 <attribute name="invisible">1</attribute>
+          </button>
+	<xpath expr="//field[@name='confirm_portal']" position="attributes">
+                           <attribute name='invisible'>1</attribute>
+                </xpath>
 	    </field>
 	</record>
 
@@ -92,6 +101,9 @@
             <field name="inherit_id" ref="elmatica_purchase_flow.create_purchase_order_sale_order_form" />
             <field name="arch" type="xml">
 		<xpath expr="//field[@name='required_shipping_date']" position="attributes">
+                           <attribute name='invisible'>1</attribute>
+                </xpath>
+		<xpath expr="//field[@name='requested_delivery_date']" position="attributes">
                            <attribute name='invisible'>1</attribute>
                 </xpath>
 	    </field>
