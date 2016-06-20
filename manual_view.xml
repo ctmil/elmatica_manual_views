@@ -16,5 +16,59 @@
 	    </field>
 	</record>
 
+	<!-- Lp_shuffling_PO_fields -->
+        <record model="ir.ui.view" id="purchase_order_form_manual">
+            <field name="name">purchase.order.form.manual</field>
+            <field name="model">purchase.order</field>
+            <field name="inherit_id" ref="elmatica_purchase_flow.confirm_purchase_order_form"/>
+            <field name="arch" type="xml">
+		<field name="computed_buffer_days" position="attributes">
+			<attribute name="string">Sale Order buffer days</attribute>
+		</field>
+		<field name="buffer_days" position="attributes">
+			<attribute name="string">Purchase Order buffer days</attribute>
+		</field>
+		<field name="hub_days" position="replace">
+		</field>
+		<field name="computed_buffer_days" position="before">
+			<field name="hub_days" string="Autoline days"/>
+		</field>
+		<field name="delivery_date" position="replace">
+		</field>
+		<field name="location_id" position="before">
+			<field name="delivery_date" string="Recalculated delivery"/>
+		</field>
+		<field name="location_id" position="attributes">
+			<attribute name="invisible">1</attribute>
+		</field>
+		<field name="requested_delivery" position="replace">
+		</field>
+		<field name="hub_days" position="before">
+			<field name="requested_delivery"/>
+		</field>
+		<field name="confirmed_date" position="before">
+			<field name="minimum_planned_date" string="Requested shipping"/>
+		</field>
+		<!-- field name="payment_term_id" position="attributes">
+			<attribute name="invisible">1</attribute>
+		</field>
+		<field name="fiscal_position" position="attributes">
+			<attribute name="invisible">1</attribute>
+		</field -->
+	    </field>
+	</record>
+
+        <record model="ir.ui.view" id="purchase_order_form_manual_requisition">
+            <field name="name">purchase.order.form.manual.requisition</field>
+            <field name="model">purchase.order</field>
+            <field name="inherit_id" ref="purchase_requisition.purchase_order_form_inherit"/>
+            <field name="arch" type="xml">
+		<field name="requisition_id" position="attributes">
+			<attribute name="invisible">1</attribute>
+		</field>
+	    </field>
+	</record>
+
+
     </data>
 </openerp>
