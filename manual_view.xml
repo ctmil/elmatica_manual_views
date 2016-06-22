@@ -196,11 +196,30 @@
         <record model="ir.ui.view" id="crm_case_tree_manual">
             <field name="name">crm.case.tree.manual</field>
             <field name="model">crm.lead</field>
-            <field name="inherit_id" ref="crm.crm.crm_case_tree_view_leads" />
+            <field name="inherit_id" ref="Leads-with-Product.crm_case_tree_view_oppor_inherited" />
             <field name="arch" type="xml">
 		<xpath expr="//field[@name='product_name']" position="attributes">
                            <attribute name='invisible'>1</attribute>
                 </xpath>
+	    </field>
+	</record>
+
+        <record model="ir.ui.view" id="crm_case_tree_manual_base">
+            <field name="name">crm.case.tree.manual.base</field>
+            <field name="model">crm.lead</field>
+            <field name="inherit_id" ref="crm.crm_case_tree_view_oppor" />
+            <field name="arch" type="xml">
+		<xpath expr="//field[@name='country_id']" position="attributes">
+                           <attribute name='invisible'>1</attribute>
+                </xpath>
+	    </field>
+	</record>
+
+        <record model="ir.ui.view" id="crm_lead_tree_manual_base">
+            <field name="name">crm.lead.tree.manual.base</field>
+            <field name="model">crm.lead</field>
+            <field name="inherit_id" ref="crm.crm_case_tree_view_leads" />
+            <field name="arch" type="xml">
 		<xpath expr="//field[@name='country_id']" position="attributes">
                            <attribute name='invisible'>1</attribute>
                 </xpath>
@@ -209,6 +228,8 @@
                 </xpath>
 	    </field>
 	</record>
+
+
 
     </data>
 </openerp>

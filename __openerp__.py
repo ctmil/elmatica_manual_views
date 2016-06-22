@@ -2,7 +2,7 @@
     'name': 'Elmatica - Manual Views module',
     'category': 'Sales',
     'version': '0.1',
-    'depends': ['elmatica_sales_purchase','elmatica_purchase_flow','purchase_requisition','product_lifecycle','sale_stock','crm'],
+    'depends': ['elmatica_sales_purchase','elmatica_purchase_flow','purchase_requisition','product_lifecycle','sale_stock','crm','Leads-with-Product'],
     'data': [
 	'manual_view.xml',
     ],
