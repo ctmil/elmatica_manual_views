@@ -192,31 +192,20 @@
 	    </field>
 	</record>
 
-	<!-- Opportunities Lp_several_changes_to_opp_form -->
-        <record model="ir.ui.view" id="crm_opportunity_form_manual">
-            <field name="name">crm.opportunity.form.manual</field>
+	<!-- Lp_hide_several_cols_lead_tree -->
+        <record model="ir.ui.view" id="crm_case_tree_manual">
+            <field name="name">crm.case.tree.manual</field>
             <field name="model">crm.lead</field>
-            <field name="inherit_id" ref="elmatica_sales_customizations.crm_opportunity_form_elmatica_view" />
+            <field name="inherit_id" ref="crm.crm.crm_case_tree_view_leads" />
             <field name="arch" type="xml">
-		<!--- make required fields optional -->
-		<xpath expr="//field[@name='order_type']" position="attributes">
-                           <attribute name='required'>0</attribute>
+		<xpath expr="//field[@name='product_name']" position="attributes">
+                           <attribute name='invisible'>1</attribute>
                 </xpath>
-		<xpath expr="//field[@name='rfq_rfb']" position="attributes">
-                           <attribute name='required'>0</attribute>
+		<xpath expr="//field[@name='country_id']" position="attributes">
+                           <attribute name='invisible'>1</attribute>
                 </xpath>
-		<xpath expr="//field[@name='client_order_ref']" position="attributes">
-                           <attribute name='required'>0</attribute>
-                </xpath>
-		<xpath expr="//field[@name='requested_date']" position="attributes">
-                           <attribute name='required'>0</attribute>
-                </xpath>
-		<!-- Change label of tabs -->
-		<xpath expr="//page[@string='Elmatica']" position="attributes">
-                           <attribute name='string'>Assorted</attribute>
-                </xpath>
-		<xpath expr="//page[@string='Elmatica']" position="attributes">
-                           <attribute name='string'>Related Prods</attribute>
+		<xpath expr="//field[@name='phone']" position="attributes">
+                           <attribute name='invisible'>1</attribute>
                 </xpath>
 	    </field>
 	</record>
