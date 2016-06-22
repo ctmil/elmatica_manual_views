@@ -201,6 +201,9 @@
 		<xpath expr="//field[@name='product_name']" position="attributes">
                            <attribute name='invisible'>1</attribute>
                 </xpath>
+		<xpath expr="//tree[@string='Opportunities']" position="attributes">
+                    <attribute name='default_order'>create_date desc</attribute>
+                </xpath>
 	    </field>
 	</record>
 
@@ -235,19 +238,9 @@
                <field name="model">crm.lead</field>
                <field name="inherit_id" ref="crm.crm_case_form_view_leads" />
                <field name="arch" type="xml">
-			<xpath expr="//field[@name='section_id']" position="replace">
-	                    <field name="section_id" string="Team"/>
-	                </xpath>
-		</field>
-	</record>
-        <record model="ir.ui.view" id="crm_case_form_view_leads_manual">
-               <field name="name">crm.lead.form.manual</field>
-               <field name="model">crm.lead</field>
-               <field name="inherit_id" ref="crm.crm_case_form_view_leads" />
-               <field name="arch" type="xml">
-			<xpath expr="//field[@name='section_id']" position="replace">
-	                    <field name="section_id" string="Team"/>
-	                </xpath>
+			<field name="section_id" position="attributes">
+	                    <attribute name="string">Team</attribute>
+	                </field>
 		</field>
 	</record>
         <record model="ir.ui.view" id="crm_case_form_view_oppor_manual">
@@ -255,9 +248,9 @@
                <field name="model">crm.lead</field>
                <field name="inherit_id" ref="crm.crm_case_form_view_oppor" />
                <field name="arch" type="xml">
-			<xpath expr="//field[@name='section_id']" position="replace">
-	                    <field name="section_id" string="Team"/>
-	                </xpath>
+			<field name="section_id" position="attributes">
+	                    <attribute name="string">Team</attribute>
+	                </field>
 		</field>
 	</record>
 
