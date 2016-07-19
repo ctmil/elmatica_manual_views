@@ -255,16 +255,6 @@
 	                </xpath>
 		</field>
 	</record>
-        <record model="ir.ui.view" id="crm_case_form_view_oppor_manual">
-               <field name="name">crm.opportunity.form.manual</field>
-               <field name="model">crm.lead</field>
-               <field name="inherit_id" ref="crm.crm_case_form_view_oppor" />
-               <field name="arch" type="xml">
-			<field name="section_id" position="attributes">
-	                    <attribute name="string">Team</attribute>
-	                </field>
-		</field>
-	</record>
 
         <record model="ir.ui.view" id="product_template_form_view_manual">
                <field name="name">product.template.form.manual</field>
